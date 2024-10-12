@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accelerationism</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Accelerationism</h1>
+    </header>
+    <main>
+        <section id="animation">
+            <h2>Scientific Animation of Vectors</h2>
+            <div id="canvas-container"></div>
+            <script>
+                function setup() {
+                    let canvas = createCanvas(600, 400);
+                    canvas.parent('canvas-container');
+                }
+
+                function draw() {
+                    background(240);
+                    stroke(0);
+                    strokeWeight(2);
+                    let time = millis() * 0.001;
+
+                    // Simple vector animation
+                    let x = width / 2 + cos(time) * 100;
+                    let y = height / 2 + sin(time) * 100;
+
+                    line(width / 2, height / 2, x, y);
+                    fill(255, 0, 0);
+                    ellipse(x, y, 10, 10);
+                }
+            </script>
+        </section>
+        <section id="article">
+            <h2>Main Article</h2>
+            <p>Accelerationism is a philosophical and political concept that advocates for the acceleration of technological and social change. It posits that rather than resisting the forces of capitalism and technology, we should embrace and accelerate them to bring about radical transformations in society.</p>
+            <p>Transhumanism, on the other hand, is a movement that seeks to enhance the human condition through advanced technologies. This includes genetic engineering, artificial intelligence, and other innovations that can improve physical and cognitive abilities.</p>
+            <p>The relationship between accelerationism and transhumanism is significant. Accelerationism suggests that by pushing technology to its limits, we can transcend our current human limitations, leading to a transhumanist future. This perspective encourages the exploration of new technologies that can redefine what it means to be human, ultimately pushing us towards a post-human existence.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Accelerationism Project</p>
+    </footer>
+</body>
+</html>
