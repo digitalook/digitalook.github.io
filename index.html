@@ -12,31 +12,6 @@
         <h1>Accelerationism</h1>
     </header>
     <main>
-        <section id="animation">
-            <h2>Scientific Animation of Vectors</h2>
-            <div id="canvas-container"></div>
-            <script>
-                function setup() {
-                    let canvas = createCanvas(600, 400);
-                    canvas.parent('canvas-container');
-                }
-
-                function draw() {
-                    background(240);
-                    stroke(0);
-                    strokeWeight(2);
-                    let time = millis() * 0.001;
-
-                    // Simple vector animation
-                    let x = width / 2 + cos(time) * 100;
-                    let y = height / 2 + sin(time) * 100;
-
-                    line(width / 2, height / 2, x, y);
-                    fill(255, 0, 0);
-                    ellipse(x, y, 10, 10);
-                }
-            </script>
-        </section>
         <section id="article">
             <h2>Main Article</h2>
             <p>Accelerationism is a philosophical and political concept that advocates for the acceleration of technological and social change. It posits that rather than resisting the forces of capitalism and technology, we should embrace and accelerate them to bring about radical transformations in society.</p>
@@ -47,5 +22,38 @@
     <footer>
         <p>&copy; 2024 Accelerationism Project</p>
     </footer>
+    <div id="canvas-container"></div>
+    <script>
+        function setup() {
+            let canvas = createCanvas(windowWidth, windowHeight);
+            canvas.position(0, 0);
+            canvas.style('z-index', '-1');
+            canvas.mousePressed(() => {
+                saveCanvas('myCanvas', 'png');
+            });
+        }
+
+        function draw() {
+            background(255, 255, 255, 50); // Semi-transparent background
+            let time = millis() * 0.001;
+
+            // Modern vector animation
+            for (let i = 0; i < 10; i++) {
+                let angle = time + (TWO_PI / 10) * i;
+                let x = width / 2 + cos(angle) * 200;
+                let y = height / 2 + sin(angle) * 200;
+
+                stroke(0, 100);
+                strokeWeight(2);
+                line(width / 2, height / 2, x, y);
+                fill(0, 150);
+                ellipse(x, y, 15, 15);
+            }
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+        }
+    </script>
 </body>
 </html>
